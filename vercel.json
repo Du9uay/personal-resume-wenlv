@@ -1,18 +1,11 @@
 {
   "version": 2,
-  "builds": [
+  "rewrites": [
     {
-      "src": "index-enhanced.html",
-      "use": "@vercel/static"
+      "source": "/(.*)",
+      "destination": "/index-enhanced.html"
     }
   ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/index-enhanced.html"
-    }
-  ],
-  "public": true,
   "cleanUrls": true,
   "trailingSlash": false
 }
