@@ -165,29 +165,6 @@ class BackgroundWorldMap {
                 regions: [] // 清空所有特殊区域配置
             },
             series: [
-                // 地图底色 - 统一绿色
-                {
-                    type: 'map',
-                    map: 'world',
-                    roam: false,
-                    silent: true,
-                    itemStyle: {
-                        normal: {
-                            areaColor: 'rgba(82, 183, 136, 0.35)',
-                            borderColor: 'rgba(82, 183, 136, 0.3)',
-                            borderWidth: 0.8
-                        },
-                        emphasis: {
-                            areaColor: 'rgba(82, 183, 136, 0.5)',
-                            borderColor: 'rgba(82, 183, 136, 0.8)',
-                            borderWidth: 2
-                        }
-                    },
-                    label: {
-                        show: false
-                    },
-                    data: []
-                },
                 // 城市散点 - 更简洁
                 {
                     name: '城市',
