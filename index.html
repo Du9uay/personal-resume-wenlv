@@ -21,6 +21,28 @@
     <link rel="stylesheet" href="education-style.css">
     <!-- ECharts -->
     <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    
+    <!-- 防止滚动位置记忆 -->
+    <style>
+        /* 确保页面始终从顶部开始 */
+        html {
+            scroll-behavior: auto !important;
+        }
+        
+        /* 页面加载时隐藏滚动，防止跳动 */
+        html.loading {
+            overflow: hidden;
+        }
+    </style>
+    
+    <script>
+        // 立即滚动到顶部（在页面解析时就执行）
+        if (history.scrollRestoration) {
+            history.scrollRestoration = 'manual';
+        }
+        window.scrollTo(0, 0);
+        document.documentElement.classList.add('loading');
+    </script>
 </head>
 <body>
     <!-- 加载动画 -->
@@ -577,10 +599,27 @@
     <script src="echarts-background-map.js"></script>
     
     <script>
+        // 页面刷新时滚动到顶部
+        window.onbeforeunload = function () {
+            window.scrollTo(0, 0);
+        };
+        
+        // 页面加载完成时确保在顶部
+        window.addEventListener('DOMContentLoaded', () => {
+            window.scrollTo(0, 0);
+        });
+        
         // 加载动画
         window.addEventListener('load', () => {
+            // 再次确保滚动到顶部
+            window.scrollTo(0, 0);
+            document.documentElement.scrollTop = 0;
+            document.body.scrollTop = 0;
+            
             setTimeout(() => {
                 document.getElementById('loader').style.display = 'none';
+                // 恢复页面滚动
+                document.documentElement.classList.remove('loading');
             }, 1500);
         });
         
