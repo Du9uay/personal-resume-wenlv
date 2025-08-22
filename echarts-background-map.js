@@ -58,6 +58,13 @@ class BackgroundWorldMap {
     }
 
     initChart(container) {
+        // 检查容器是否已经有图表实例
+        const existingInstance = echarts.getInstanceByDom(container);
+        if (existingInstance) {
+            console.log('容器已有图表实例，先销毁');
+            existingInstance.dispose();
+        }
+        
         // 确保容器有正确的尺寸
         const rect = container.getBoundingClientRect();
         
@@ -589,19 +596,40 @@ class BackgroundWorldMap {
     }
 }
 
-// 初始化背景地图
+// 初始化背景地图 - 确保只创建一次
+let mapInitialized = false;
+
+function initializeMap() {
+    // 防止重复初始化
+    if (mapInitialized || window.backgroundMap) {
+        console.log('地图已经初始化，跳过');
+        return;
+    }
+    
+    const container = document.getElementById('hero-map-background');
+    if (!container) {
+        console.warn('地图容器不存在');
+        return;
+    }
+    
+    // 清空容器内容
+    container.innerHTML = '';
+    
+    // 标记为已初始化
+    mapInitialized = true;
+    
+    // 创建地图实例
+    try {
+        window.backgroundMap = new BackgroundWorldMap();
+        console.log('地图初始化成功');
+    } catch (error) {
+        console.error('地图初始化失败:', error);
+        mapInitialized = false;
+    }
+}
+
+// DOM加载完成后初始化
 document.addEventListener('DOMContentLoaded', () => {
-    // 确保容器存在后再初始化
-    setTimeout(() => {
-        const container = document.getElementById('hero-map-background');
-        if (container) {
-            window.backgroundMap = new BackgroundWorldMap();
-        } else {
-            console.warn('地图容器尚未准备好，延迟初始化');
-            // 再次尝试
-            setTimeout(() => {
-                window.backgroundMap = new BackgroundWorldMap();
-            }, 1000);
-        }
-    }, 100);
+    // 延迟执行以确保所有资源加载完成
+    setTimeout(initializeMap, 200);
 });
