@@ -11,7 +11,16 @@
       "Bash(git push:*)",
       "Bash(mv:*)",
       "Bash(python3:*)",
-      "Bash(cp:*)"
+      "Bash(cp:*)",
+      "Bash(lsof:*)",
+      "Bash(git clone:*)",
+      "Bash(kill:*)",
+      "Bash(curl:*)",
+      "Bash(chmod:*)",
+      "Bash(pkill:*)",
+      "Bash(echo:*)",
+      "Bash(grep:*)",
+      "Bash(git remote remove:*)"
     ],
     "deny": []
   }

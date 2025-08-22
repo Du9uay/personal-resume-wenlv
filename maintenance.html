@@ -5,33 +5,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>网站维护中</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
         body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            margin: 0;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             color: white;
         }
-        .container {
+        
+        .maintenance-container {
             text-align: center;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            max-width: 500px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
         }
+        
         h1 {
-            font-size: 3em;
+            font-size: 2.5rem;
             margin-bottom: 20px;
         }
-        p {
-            font-size: 1.2em;
+        
+        .btn-back {
+            display: inline-block;
+            padding: 12px 30px;
+            background: white;
+            color: #333;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>🔧</h1>
-        <h1>网站维护中</h1>
-        <p>我们正在进行系统升级，很快就会回来！</p>
+    <div class="maintenance-container">
+        <h1>🛠️ 网站升级中</h1>
+        <p>我们正在优化您的浏览体验</p>
+        <a href="youth-travel.html" class="btn-back">返回主页</a>
     </div>
 </body>
 </html>
