@@ -20,7 +20,14 @@
       "Bash(pkill:*)",
       "Bash(echo:*)",
       "Bash(grep:*)",
-      "Bash(git remote remove:*)"
+      "Bash(git remote remove:*)",
+      "Bash(git ls-tree:*)",
+      "Bash([ -f \"index.html\" ])",
+      "Bash([ -f \"youth-travel-style.css\" ])",
+      "Bash([ -f \"echarts-background-map.js\" ])",
+      "Bash([ -f \"worldZH.json\" ])",
+      "Bash([ -d \"public\" ])",
+      "Bash(mkdir:*)"
     ],
     "deny": []
   }
