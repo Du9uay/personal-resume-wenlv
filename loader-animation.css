@@ -201,9 +201,14 @@
     z-index: 10;
     text-align: center;
     margin-top: 50px;
+    height: 40px;
 }
 
 .loader-text h3 {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
     color: #fff;
     font-size: 28px;
     font-weight: 700;
@@ -212,7 +217,35 @@
     background: linear-gradient(135deg, #00b4d8, #90e0ef, #ff6b35);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: shimmer 2s ease infinite;
+}
+
+.loader-text .welcome-text {
+    animation: textSequence 4s ease-in-out;
+}
+
+.loader-text .takeoff-text {
+    animation: textSequence 4s ease-in-out;
+    animation-delay: 2s;
+    opacity: 0;
+}
+
+@keyframes textSequence {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    20% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    80% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
 }
 
 @keyframes shimmer {
@@ -229,6 +262,7 @@
     display: flex;
     gap: 8px;
     justify-content: center;
+    margin-top: 50px;
 }
 
 .loading-dots span {
