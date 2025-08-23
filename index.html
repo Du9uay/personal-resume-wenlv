@@ -188,65 +188,41 @@
                     <div class="about-content-wrapper">
                         <!-- 左侧内容区 -->
                         <div class="about-info-section">
-                            <!-- 个人信息卡片组 -->
-                            <div class="info-cards-grid">
-                                <div class="info-card">
-                                    <div class="card-icon">
-                                        <i class="bi bi-person-circle"></i>
-                                    </div>
-                                    <div class="card-content">
-                                        <span class="card-label">姓名</span>
-                                        <span class="card-value">万圆</span>
-                                    </div>
+                            <!-- 个人信息统一卡片 -->
+                            <div class="personal-info-card">
+                                <div class="info-card-header">
+                                    <i class="bi bi-person-badge-fill"></i>
+                                    <span>基本信息</span>
                                 </div>
-                                
-                                <div class="info-card">
-                                    <div class="card-icon">
-                                        <i class="bi bi-geo-alt-fill"></i>
+                                <div class="info-items">
+                                    <div class="info-item">
+                                        <span class="info-label">姓名</span>
+                                        <span class="info-value">万圆</span>
                                     </div>
-                                    <div class="card-content">
-                                        <span class="card-label">现居地</span>
-                                        <span class="card-value">苏州市吴江区</span>
+                                    <div class="info-divider"></div>
+                                    <div class="info-item">
+                                        <span class="info-label">性别</span>
+                                        <span class="info-value">男</span>
                                     </div>
-                                </div>
-                                
-                                <div class="info-card">
-                                    <div class="card-icon">
-                                        <i class="bi bi-briefcase-fill"></i>
+                                    <div class="info-divider"></div>
+                                    <div class="info-item">
+                                        <span class="info-label">现居地</span>
+                                        <span class="info-value">苏州市吴江区</span>
                                     </div>
-                                    <div class="card-content">
-                                        <span class="card-label">求职意向</span>
-                                        <span class="card-value">活动策划师助理</span>
+                                    <div class="info-divider"></div>
+                                    <div class="info-item">
+                                        <span class="info-label">求职意向</span>
+                                        <span class="info-value">活动策划师助理</span>
                                     </div>
-                                </div>
-                                
-                                <div class="info-card">
-                                    <div class="card-icon">
-                                        <i class="bi bi-mortarboard-fill"></i>
+                                    <div class="info-divider"></div>
+                                    <div class="info-item">
+                                        <span class="info-label">专业背景</span>
+                                        <span class="info-value">旅游管理专业</span>
                                     </div>
-                                    <div class="card-content">
-                                        <span class="card-label">专业背景</span>
-                                        <span class="card-value">旅游管理专业</span>
-                                    </div>
-                                </div>
-                                
-                                <div class="info-card">
-                                    <div class="card-icon">
-                                        <i class="bi bi-building"></i>
-                                    </div>
-                                    <div class="card-content">
-                                        <span class="card-label">毕业院校</span>
-                                        <span class="card-value">苏州信息职业技术学院</span>
-                                    </div>
-                                </div>
-                                
-                                <div class="info-card">
-                                    <div class="card-icon">
-                                        <i class="bi bi-gender-male"></i>
-                                    </div>
-                                    <div class="card-content">
-                                        <span class="card-label">性别</span>
-                                        <span class="card-value">男</span>
+                                    <div class="info-divider"></div>
+                                    <div class="info-item">
+                                        <span class="info-label">毕业院校</span>
+                                        <span class="info-value">苏州信息职业技术学院</span>
                                     </div>
                                 </div>
                             </div>
@@ -1097,59 +1073,79 @@
             gap: 30px;
         }
         
-        /* 信息卡片网格 */
-        .info-cards-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-        }
-        
-        .info-card {
+        /* 个人信息统一卡片 */
+        .personal-info-card {
             background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            padding: 15px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            transition: all 0.3s ease;
+            border-radius: 20px;
+            padding: 25px;
             border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
         }
         
-        .info-card:hover {
+        .personal-info-card:hover {
             background: rgba(255, 255, 255, 0.08);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 180, 216, 0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 180, 216, 0.3);
         }
         
-        .card-icon {
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, #00b4d8, #0090a8);
-            border-radius: 10px;
+        .info-card-header {
             display: flex;
             align-items: center;
-            justify-content: center;
-            color: white;
+            gap: 10px;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid rgba(0, 180, 216, 0.3);
+        }
+        
+        .info-card-header i {
+            font-size: 1.5rem;
+            color: #00b4d8;
+        }
+        
+        .info-card-header span {
             font-size: 1.2rem;
-        }
-        
-        .card-content {
-            display: flex;
-            flex-direction: column;
-            gap: 2px;
-        }
-        
-        .card-label {
-            font-size: 0.75rem;
-            color: rgba(255, 255, 255, 0.5);
-            text-transform: uppercase;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.9);
             letter-spacing: 1px;
         }
         
-        .card-value {
+        .info-items {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+        
+        .info-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            transition: all 0.2s ease;
+        }
+        
+        .info-item:hover {
+            padding-left: 10px;
+            background: linear-gradient(90deg, rgba(0, 180, 216, 0.1) 0%, transparent 100%);
+        }
+        
+        .info-label {
             font-size: 0.95rem;
-            color: rgba(255, 255, 255, 0.9);
+            color: rgba(255, 255, 255, 0.6);
             font-weight: 500;
+        }
+        
+        .info-value {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.95);
+            font-weight: 600;
+        }
+        
+        .info-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            margin: 0;
         }
         
         /* 技能标签 */
@@ -1341,10 +1337,6 @@
         
         /* 响应式设计 */
         @media (max-width: 1024px) {
-            .info-cards-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
             .about-content-wrapper {
                 flex-direction: column;
                 align-items: center;
@@ -1361,8 +1353,14 @@
                 padding: 25px;
             }
             
-            .info-cards-grid {
-                grid-template-columns: 1fr;
+            .personal-info-card {
+                padding: 20px;
+            }
+            
+            .info-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
             }
             
             .philosophy-cards {
