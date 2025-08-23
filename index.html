@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     <!-- 年轻化文旅样式 -->
     <link rel="stylesheet" href="youth-travel-style.css">
+    <!-- 加载动画样式 -->
+    <link rel="stylesheet" href="loader-animation.css">
     <!-- 英雄页地图样式 -->
     <link rel="stylesheet" href="hero-map-style.css">
     <!-- 现代技能展示样式 -->
@@ -46,10 +48,51 @@
 </head>
 <body>
     <!-- 加载动画 -->
-    <div class="travel-loader" id="loader">
-        <svg class="airplane-loader" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M21 16V8C21 7.45 20.55 7 20 7S19 7.45 19 8V16L14.5 13.85L13.33 8.8C13.2 8.3 12.7 8 12.2 8H12.05C11.6 8 11.15 8.35 11.1 8.85L10.25 16L6 14V8C6 7.45 5.55 7 5 7S4 7.45 4 8V14C4 14.55 4.45 15 5 15L10 17V20L8 21V22H16V21L14 20V17L19 15C19.55 15 20 14.55 20 14V8" fill="#00b4d8"/>
-        </svg>
+    <div class="page-loader" id="loader">
+        <div class="loader-content">
+            <!-- 飞机动画 -->
+            <div class="plane-container">
+                <svg class="plane-path" viewBox="0 0 300 200">
+                    <path class="flight-path" d="M 30 100 Q 150 50 270 100" stroke="#00b4d8" stroke-width="2" fill="none" stroke-dasharray="5,5" opacity="0.3"/>
+                </svg>
+                <div class="plane">
+                    <i class="bi bi-airplane-fill"></i>
+                </div>
+            </div>
+            
+            <!-- 世界地图轮廓 -->
+            <div class="map-outline">
+                <svg viewBox="0 0 400 200">
+                    <circle cx="100" cy="80" r="3" fill="#90e0ef" opacity="0.6"/>
+                    <circle cx="200" cy="100" r="3" fill="#90e0ef" opacity="0.6"/>
+                    <circle cx="300" cy="70" r="3" fill="#90e0ef" opacity="0.6"/>
+                    <circle cx="150" cy="120" r="3" fill="#90e0ef" opacity="0.6"/>
+                    <circle cx="250" cy="90" r="3" fill="#90e0ef" opacity="0.6"/>
+                </svg>
+            </div>
+            
+            <!-- 护照戳动画 -->
+            <div class="passport-stamps">
+                <div class="stamp stamp-1">TRAVEL</div>
+                <div class="stamp stamp-2">DESIGN</div>
+                <div class="stamp stamp-3">探索</div>
+            </div>
+            
+            <!-- 加载文字 -->
+            <div class="loader-text">
+                <h3>准备起飞</h3>
+                <div class="loading-dots">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+            
+            <!-- 进度条 -->
+            <div class="loader-progress">
+                <div class="progress-bar"></div>
+            </div>
+        </div>
     </div>
 
 
@@ -115,7 +158,7 @@
             </p>
             
             <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
-                <a href="#destinations" class="btn-travel btn-primary">
+                <a href="#about" class="btn-travel btn-primary">
                     <i class="bi bi-compass"></i> 开始探索
                 </a>
                 <a href="#projects" class="btn-travel btn-outline">
@@ -248,13 +291,29 @@
     <!-- 文旅项目展示 -->
     <section id="projects" class="section-padding" style="background: rgba(255,255,255,0.02);">
         <div class="container">
-            <h2 class="text-gradient" style="text-align: center; font-size: 3rem; margin-bottom: 50px;">
+            <h2 class="text-gradient" style="text-align: center; font-size: 3rem; margin-bottom: 30px;">
                 我参与的文旅项目
             </h2>
             
+            <!-- 项目分类导航栏 -->
+            <div class="project-category-nav">
+                <button class="category-tab active" data-category="all">
+                    <i class="bi bi-grid-3x3-gap"></i>
+                    <span>全部项目</span>
+                </button>
+                <button class="category-tab" data-category="management">
+                    <i class="bi bi-briefcase"></i>
+                    <span>项目经营管理</span>
+                </button>
+                <button class="category-tab" data-category="planning">
+                    <i class="bi bi-calendar-event"></i>
+                    <span>商业活动策划</span>
+                </button>
+            </div>
+            
             <div class="projects-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px;">
-                <!-- 项目1：舟山民宿运营 -->
-                <div class="travel-project" data-project="minsu">
+                <!-- 项目1：舟山民宿运营 - 项目经营管理 -->
+                <div class="travel-project" data-project="minsu" data-category="management">
                     <img src="public/舟山某民宿180天提升入住率项目/民宿运营项目总图.jpg" class="project-image" alt="舟山民宿运营项目">
                     <div class="project-content">
                         <div class="project-tags">
@@ -286,8 +345,8 @@
                     </div>
                 </div>
                 
-                <!-- 项目2：谷子店经营 -->
-                <div class="travel-project" data-project="guzi">
+                <!-- 项目2：谷子店经营 - 项目经营管理 -->
+                <div class="travel-project" data-project="guzi" data-category="management">
                     <img src="public/谷子店开店与经营管理/谷子店开店与经营管理 主图.png" class="project-image" alt="谷子店经营项目">
                     <div class="project-content">
                         <div class="project-tags">
@@ -319,8 +378,8 @@
                     </div>
                 </div>
                 
-                <!-- 项目3：春风摩托车营销 -->
-                <div class="travel-project" data-project="chunfeng">
+                <!-- 项目3：春风摩托车营销 - 商业活动策划 -->
+                <div class="travel-project" data-project="chunfeng" data-category="planning">
                     <img src="public/春风 450MT新品上市营销活动策划项目/商业活动策划_春风 450MT新品上市营销活动策划项目总图.jpeg" class="project-image" alt="春风摩托车营销项目">
                     <div class="project-content">
                         <div class="project-tags">
@@ -352,8 +411,8 @@
                     </div>
                 </div>
                 
-                <!-- 项目4：自驾游SEO优化 -->
-                <div class="travel-project" data-project="seo">
+                <!-- 项目4：自驾游SEO优化 - 商业活动策划 -->
+                <div class="travel-project" data-project="seo" data-category="planning">
                     <img src="public/某自驾游平台SEO:SEM全流程优化项目/seo主图.jpg" class="project-image" alt="自驾游SEO优化项目">
                     <div class="project-content">
                         <div class="project-tags">
@@ -380,6 +439,39 @@
                             </div>
                         </div>
                         <a href="javascript:void(0)" class="project-link" onclick="openProjectModal('seo')">
+                            查看详情 <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- 项目5：森林湿地景区新媒体运营 - 项目经营管理 -->
+                <div class="travel-project" data-project="wetland" data-category="management">
+                    <img src="public/某地森林湿地自然景区多平台新媒体运营方案/主图：丽江旅游景区封面.jpeg" class="project-image" alt="森林湿地景区新媒体运营">
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">新媒体运营</span>
+                            <span class="tag">生态旅游</span>
+                            <span class="tag">2024</span>
+                        </div>
+                        <h3 class="project-title">某地森林湿地自然景区多平台新媒体运营方案</h3>
+                        <p class="project-description">
+                            通过构建全方位多平台新媒体运营体系，120天内提升景区线上曝光度50%，增加游客数量30%，打造可复制的森林湿地景区运营模式。
+                        </p>
+                        <div class="project-meta">
+                            <div class="meta-item">
+                                <i class="bi bi-calendar3"></i>
+                                <span>2024.3-2024.12</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="bi bi-person-badge"></i>
+                                <span>新媒体运营专员</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="bi bi-building"></i>
+                                <span>xxx文旅管理有限公司</span>
+                            </div>
+                        </div>
+                        <a href="javascript:void(0)" class="project-link" onclick="openProjectModal('wetland')">
                             查看详情 <i class="bi bi-arrow-right"></i>
                         </a>
                     </div>
@@ -616,11 +708,48 @@
             document.documentElement.scrollTop = 0;
             document.body.scrollTop = 0;
             
-            setTimeout(() => {
-                document.getElementById('loader').style.display = 'none';
-                // 恢复页面滚动
-                document.documentElement.classList.remove('loading');
-            }, 1500);
+            // 模拟加载进度
+            const loader = document.getElementById('loader');
+            const progressBar = loader.querySelector('.progress-bar');
+            const loaderText = loader.querySelector('.loader-text h3');
+            
+            // 动态加载文字
+            const loadingTexts = ['准备起飞', '装载行李', '检查护照', '即将抵达'];
+            let textIndex = 0;
+            
+            const textInterval = setInterval(() => {
+                textIndex = (textIndex + 1) % loadingTexts.length;
+                loaderText.textContent = loadingTexts[textIndex];
+            }, 500);
+            
+            // 设置最小加载时间
+            const minLoadTime = 2000;
+            const startTime = Date.now();
+            
+            // 加载完成处理
+            const hideLoader = () => {
+                const elapsedTime = Date.now() - startTime;
+                const remainingTime = Math.max(0, minLoadTime - elapsedTime);
+                
+                setTimeout(() => {
+                    clearInterval(textInterval);
+                    loaderText.textContent = '欢迎登机';
+                    loader.classList.add('fade-out');
+                    setTimeout(() => {
+                        loader.style.display = 'none';
+                        // 恢复页面滚动
+                        document.documentElement.classList.remove('loading');
+                    }, 800);
+                }, remainingTime);
+            };
+            
+            // 如果页面已经加载完成，执行隐藏动画
+            if (document.readyState === 'complete') {
+                hideLoader();
+            } else {
+                // 否则等待页面完全加载
+                window.addEventListener('load', hideLoader);
+            }
         });
         
         // 导航栏滚动效果
@@ -790,6 +919,113 @@
     </div>
     
     <style>
+        /* 项目分类导航栏样式 */
+        .project-category-nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 40px;
+            padding: 15px;
+            background: rgba(38, 70, 83, 0.3);
+            border-radius: 50px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .category-tab {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 25px;
+            background: transparent;
+            border: 2px solid transparent;
+            border-radius: 25px;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .category-tab i {
+            font-size: 1.1rem;
+        }
+        
+        .category-tab:hover {
+            color: #00b4d8;
+            background: rgba(0, 180, 216, 0.1);
+        }
+        
+        .category-tab.active {
+            color: #fff;
+            background: linear-gradient(135deg, #00b4d8, #0090a8);
+            border-color: transparent;
+            box-shadow: 0 4px 15px rgba(0, 180, 216, 0.3);
+        }
+        
+        .category-tab.active::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), transparent);
+            pointer-events: none;
+        }
+        
+        /* 项目隐藏/显示动画 */
+        .travel-project {
+            transition: all 0.4s ease, opacity 0.3s ease, transform 0.3s ease;
+        }
+        
+        .travel-project.hidden {
+            display: none !important;
+        }
+        
+        .travel-project.fade-out {
+            opacity: 0;
+            transform: scale(0.95);
+        }
+        
+        .travel-project.fade-in {
+            animation: fadeIn 0.5s ease forwards;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .project-category-nav {
+                flex-wrap: wrap;
+                gap: 10px;
+                padding: 10px;
+            }
+            
+            .category-tab {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+            
+            .category-tab span {
+                display: none;
+            }
+            
+            .category-tab i {
+                font-size: 1.2rem;
+            }
+        }
+        
         /* 项目卡片元信息样式 */
         .project-meta {
             margin-top: 15px;
@@ -1509,8 +1745,122 @@
                         `
                     }
                 ]
+            },
+            wetland: {
+                title: '某地森林湿地自然景区多平台新媒体运营方案',
+                time: '2024.3~2024.12',
+                role: '新媒体运营专员',
+                company: 'xxx文旅管理有限公司',
+                description: '随着人们对于自然生态旅游的向往与追求不断增加，某地森林湿地自然景区迎来了新的发展机遇，但同时也面临着周边众多景区的竞争挑战。本项目以该森林湿地自然景区为运营主体，目标是在120天内，通过构建全方位、多平台的新媒体运营体系，提升景区的线上曝光度50%，增加游客数量30%，并打造良好的景区品牌形象。利用新媒体平台的互动功能，开展线上活动、话题挑战等，增强游客与景区之间的互动性，提升游客的参与感与忠诚度。建立数据监测与分析机制，实时跟踪各平台的运营数据，根据数据反馈及时调整运营策略，实现精准营销与高效传播，最终形成一套可复制、可持续的森林湿地自然景区新媒体运营模式。',
+                processes: [
+                    {
+                        title: '搭建新媒体平台矩阵',
+                        image: 'public/某地森林湿地自然景区多平台新媒体运营方案/流程一：搭建新媒体平台矩阵.jpeg',
+                        overview: '在项目初期参与多平台账号的搭建与基础运营，协助完成平台定位与功能配置，确保各平台在视觉风格与运营机制上的一致性，为后续内容与数据分析奠定基础。',
+                        content: `
+                            <ol>
+                                <li><strong>多平台账号搭建与管理：</strong>协助完成微信公众号、抖音、小红书及微博的账号注册与基础信息完善，参与设计统一生态调性的视觉风格，确保品牌调性一致。</li>
+                                <li><strong>功能配置与测试：</strong>参与微信小程序内门票预订、活动预约等功能上线前测试，收集体验问题并反馈给开发团队，保证功能稳定运行。</li>
+                                <li><strong>平台运营机制协助：</strong>配合制定内容发布流程及问题响应机制，熟悉新媒体后台基础操作，为后续日常运营积累经验。</li>
+                            </ol>
+                        `
+                    },
+                    {
+                        title: '新媒体内容策划与制作',
+                        image: 'public/某地森林湿地自然景区多平台新媒体运营方案/流程二：新媒体策划与制作.jpeg',
+                        overview: '在内容创作阶段参与策划与素材整理，围绕生态科普、节庆活动与游客体验，协助建设多元化内容体系，并支持团队完成短视频与图文内容的制作。',
+                        content: `
+                            <ol>
+                                <li><strong>内容日历制定：</strong>协助整理节庆、动植物主题等素材，参与制定月度内容推送计划，确保不同平台内容更新有节奏。</li>
+                                <li><strong>专题内容辅助制作：</strong>协助完成"湿地小精灵""摄影挑战"等专题短视频及图文内容的素材收集与初步排版，提升内容吸引力。</li>
+                                <li><strong>UGC内容整理：</strong>参与整理游客投稿与精选评论，为"游客之声"等栏目提供素材，增强粉丝互动氛围。</li>
+                            </ol>
+                        `
+                    },
+                    {
+                        title: '互动活动运营与用户参与提升',
+                        image: 'public/某地森林湿地自然景区多平台新媒体运营方案/流程三：互动活动运营与用户参与提升.jpeg',
+                        overview: '在活动运营环节中，协助团队策划和执行线上线下互动活动，负责具体执行、素材收集与数据跟踪，推动用户活跃度和参与感的提升。',
+                        content: `
+                            <ol>
+                                <li><strong>线上活动执行：</strong>协助组织答题互动、投票抽奖等活动，负责收集用户反馈与参与数据，支持活动后期复盘。</li>
+                                <li><strong>达人及合作资源对接：</strong>参与联络小红书、抖音达人探店拍摄，协助安排脚本与现场拍摄需求，提升活动传播度。</li>
+                                <li><strong>线下活动协助：</strong>配合执行摄影体验营与亲子活动的现场支持，负责签到、资料分发及用户互动引导。</li>
+                            </ol>
+                        `
+                    },
+                    {
+                        title: '用户数据监测与运营',
+                        image: 'public/某地森林湿地自然景区多平台新媒体运营方案/流程四：用户数据监测与运营.jpeg',
+                        overview: '在项目的运营阶段，配合完成多平台数据采集与分析，参与用户画像与兴趣点整理，支持团队优化内容策略并提升整体运营效果。',
+                        content: `
+                            <ol>
+                                <li><strong>数据采集与整理：</strong>协助每日汇总微信公众号阅读量、抖音完播率等核心指标，初步整理成报表。</li>
+                                <li><strong>用户兴趣分析辅助：</strong>参与分组统计粉丝地域、互动习惯等标签，为团队精准内容推送提供数据参考。</li>
+                                <li><strong>内容优化复盘：</strong>整理高互动内容案例，参与讨论优化发布时间与传播形式，总结经验供后续使用。</li>
+                            </ol>
+                        `
+                    },
+                    {
+                        title: '制定预算计划与阶段目标',
+                        image: 'public/某地森林湿地自然景区多平台新媒体运营方案/流程五：制定预算计划与阶段目标.jpeg',
+                        overview: '在推广资源整合与目标制定阶段，协助执行与KOL、旅行社及周边商家的合作推广，跟进数据反馈，支持团队完成阶段性目标评估。',
+                        content: `
+                            <ol>
+                                <li><strong>合作推广辅助：</strong>协助执行与旅行社、商家联合推出的套餐及活动，负责整理宣传素材并跟进上线效果。</li>
+                                <li><strong>KOL合作执行支持：</strong>参与知名旅游博主探访行程安排，整理素材用于二次传播，提高景区曝光率。</li>
+                                <li><strong>阶段性目标跟进：</strong>协助统计季度增长数据，与团队共同对比实际与目标差距，参与提出改进建议。</li>
+                            </ol>
+                        `
+                    }
+                ]
             }
         };
+        
+        // 项目分类切换功能
+        document.addEventListener('DOMContentLoaded', function() {
+            const categoryTabs = document.querySelectorAll('.category-tab');
+            const projects = document.querySelectorAll('.travel-project');
+            
+            categoryTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    // 移除所有标签的激活状态
+                    categoryTabs.forEach(t => t.classList.remove('active'));
+                    // 添加当前标签的激活状态
+                    this.classList.add('active');
+                    
+                    const selectedCategory = this.getAttribute('data-category');
+                    
+                    // 筛选显示项目
+                    projects.forEach(project => {
+                        const projectCategory = project.getAttribute('data-category');
+                        
+                        if (selectedCategory === 'all') {
+                            // 显示所有项目
+                            project.classList.remove('hidden', 'fade-out');
+                            project.classList.add('fade-in');
+                        } else if (projectCategory === selectedCategory) {
+                            // 显示匹配分类的项目
+                            project.classList.remove('hidden', 'fade-out');
+                            project.classList.add('fade-in');
+                        } else {
+                            // 隐藏不匹配的项目
+                            project.classList.add('fade-out');
+                            setTimeout(() => {
+                                project.classList.add('hidden');
+                            }, 300);
+                        }
+                    });
+                    
+                    // 清除动画类
+                    setTimeout(() => {
+                        projects.forEach(project => {
+                            project.classList.remove('fade-in');
+                        });
+                    }, 500);
+                });
+            });
+        });
         
         // 打开项目详情弹窗
         function openProjectModal(projectId) {
