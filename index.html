@@ -1837,9 +1837,18 @@
             width: 100%;
             max-width: 500px;
             height: 350px;
-            object-fit: cover;
+            object-fit: contain;
             border-radius: 15px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            background: rgba(255, 255, 255, 0.02);
+        }
+        
+        /* 特殊处理森林湿地项目的流程四、五图片 */
+        .process-image-section img[src*="流程四：用户数据监测与运营"],
+        .process-image-section img[src*="流程五：制定预算计划与阶段目标"] {
+            height: auto;
+            max-height: 350px;
+            object-fit: contain;
         }
         
         .process-detail-section {
