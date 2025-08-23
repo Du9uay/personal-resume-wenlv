@@ -247,8 +247,7 @@
                         <!-- 右侧头像区 -->
                         <div class="profile-photo-section">
                             <div class="photo-frame-modern">
-                                <img src="头像.jpg" alt="个人照片" class="profile-photo" loading="eager">
-                                <div class="photo-overlay"></div>
+                                <img src="头像_optimized.jpg" alt="个人照片" class="profile-photo" loading="eager">
                             </div>
                             <div class="photo-info">
                                 <h3 class="profile-name">万圆</h3>
@@ -1179,9 +1178,7 @@
             overflow: hidden;
             background: linear-gradient(135deg, #00b4d8, #0090a8);
             padding: 3px;
-            box-shadow: 
-                0 20px 40px rgba(0, 180, 216, 0.3),
-                inset 0 0 20px rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
         
         .photo-frame-modern .profile-photo {
@@ -1190,10 +1187,11 @@
             object-fit: cover;
             object-position: center 20%;
             border-radius: 27px;
-            image-rendering: auto;
-            -webkit-backface-visibility: hidden;
-            backface-visibility: hidden;
-            transform: translateZ(0);
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: optimizeQuality;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            will-change: transform;
         }
         
         .photo-overlay {
