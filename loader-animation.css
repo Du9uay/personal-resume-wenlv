@@ -31,55 +31,6 @@
     justify-content: center;
 }
 
-/* 欢迎文字 - 最先显示 */
-.welcome-text {
-    position: absolute;
-    top: 20%;
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: center;
-    z-index: 15;
-    animation: welcomeFadeIn 0.8s ease forwards;
-}
-
-.welcome-text h2 {
-    color: #fff;
-    font-size: 36px;
-    font-weight: 700;
-    margin-bottom: 10px;
-    letter-spacing: 3px;
-    background: linear-gradient(135deg, #00b4d8, #90e0ef);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.welcome-text p {
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 16px;
-    letter-spacing: 2px;
-    font-style: italic;
-}
-
-@keyframes welcomeFadeIn {
-    0% {
-        opacity: 0;
-        transform: translateX(-50%) translateY(20px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateX(-50%) translateY(0);
-    }
-}
-
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
 /* 飞机路径动画 */
 .plane-container {
     position: absolute;
@@ -88,7 +39,6 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    animation: fadeIn 0.5s ease 0.6s backwards;
 }
 
 .plane-path {
@@ -158,7 +108,6 @@
     left: 50%;
     transform: translate(-50%, -50%);
     opacity: 0.3;
-    animation: fadeIn 0.5s ease 0.4s backwards;
 }
 
 .map-outline circle {
@@ -188,7 +137,6 @@
     width: 100%;
     height: 100%;
     pointer-events: none;
-    animation: fadeIn 0.5s ease 0.8s backwards;
 }
 
 .stamp {
@@ -253,7 +201,6 @@
     z-index: 10;
     text-align: center;
     margin-top: 50px;
-    animation: fadeIn 0.5s ease 1s backwards;
 }
 
 .loader-text h3 {
@@ -318,7 +265,6 @@
     background: rgba(255, 255, 255, 0.1);
     border-radius: 2px;
     overflow: hidden;
-    animation: fadeIn 0.5s ease 0.5s backwards;
 }
 
 .progress-bar {
