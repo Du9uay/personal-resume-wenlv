@@ -257,8 +257,11 @@
                             
                             <!-- 个人座右铭 -->
                             <div class="motto-card">
-                                <i class="bi bi-quote"></i>
-                                <p>让每一次旅行都成为难忘的故事，用设计连接世界与心灵。</p>
+                                <div class="motto-quotes">
+                                    <i class="bi bi-quote quote-left"></i>
+                                    <p>让每一次旅行都成为难忘的故事，用设计连接世界与心灵。</p>
+                                    <i class="bi bi-quote quote-right"></i>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1187,6 +1190,8 @@
             object-fit: cover;
             object-position: center 20%;
             border-radius: 27px;
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
         }
         
         .photo-overlay {
@@ -1226,17 +1231,37 @@
             border: 1px solid rgba(0, 180, 216, 0.2);
         }
         
-        .motto-card i {
+        .motto-quotes {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .motto-quotes .quote-left {
+            position: absolute;
+            left: 0;
+            top: -5px;
             color: #00b4d8;
-            font-size: 1.5rem;
-            margin-bottom: 10px;
+            font-size: 1.2rem;
+            opacity: 0.6;
+        }
+        
+        .motto-quotes .quote-right {
+            position: absolute;
+            right: 0;
+            bottom: -5px;
+            color: #00b4d8;
+            font-size: 1.2rem;
+            opacity: 0.6;
+            transform: rotate(180deg);
         }
         
         .motto-card p {
             color: rgba(255, 255, 255, 0.8);
             font-size: 0.9rem;
             line-height: 1.6;
-            margin: 0;
+            margin: 0 30px;
             font-style: italic;
         }
         
