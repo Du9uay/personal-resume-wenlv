@@ -242,32 +242,6 @@
                                     <span class="skill-tag">用户运营</span>
                                 </div>
                             </div>
-                            
-                            <!-- 职业理念 -->
-                            <div class="philosophy-section">
-                                <h4 class="section-title">
-                                    <i class="bi bi-lightbulb-fill"></i>
-                                    职业理念
-                                </h4>
-                                <div class="philosophy-cards">
-                                    <div class="philosophy-card">
-                                        <i class="bi bi-palette-fill"></i>
-                                        <span>用创意点亮活动</span>
-                                    </div>
-                                    <div class="philosophy-card">
-                                        <i class="bi bi-heart-fill"></i>
-                                        <span>用热情感染客户</span>
-                                    </div>
-                                    <div class="philosophy-card">
-                                        <i class="bi bi-graph-up"></i>
-                                        <span>用数据驱动决策</span>
-                                    </div>
-                                    <div class="philosophy-card">
-                                        <i class="bi bi-check-circle-fill"></i>
-                                        <span>用执行落地想法</span>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                         
                         <!-- 右侧头像区 -->
@@ -1183,45 +1157,6 @@
             box-shadow: 0 5px 15px rgba(0, 180, 216, 0.2);
         }
         
-        /* 职业理念卡片 */
-        .philosophy-section {
-            background: rgba(255, 107, 53, 0.05);
-            border-radius: 20px;
-            padding: 25px;
-            border: 1px solid rgba(255, 107, 53, 0.2);
-        }
-        
-        .philosophy-cards {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-        }
-        
-        .philosophy-card {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 12px;
-            padding: 12px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .philosophy-card:hover {
-            background: rgba(255, 255, 255, 0.08);
-            transform: translateX(5px);
-        }
-        
-        .philosophy-card i {
-            color: #ff6b35;
-            font-size: 1.2rem;
-        }
-        
-        .philosophy-card span {
-            color: rgba(255, 255, 255, 0.85);
-            font-size: 0.9rem;
-        }
         
         /* 右侧头像区域 */
         .profile-photo-section {
@@ -1230,6 +1165,7 @@
             flex-direction: column;
             gap: 25px;
             align-items: center;
+            justify-content: center;
         }
         
         .photo-frame-modern {
@@ -1330,10 +1266,6 @@
                 flex-direction: column;
                 align-items: flex-start;
                 gap: 5px;
-            }
-            
-            .philosophy-cards {
-                grid-template-columns: 1fr;
             }
             
             .photo-frame-modern {
