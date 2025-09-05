@@ -30,7 +30,8 @@
       "Bash(mkdir:*)",
       "Bash(identify:*)",
       "Bash(convert:*)",
-      "Bash(git revert:*)"
+      "Bash(git revert:*)",
+      "Bash(gh repo view:*)"
     ],
     "deny": []
   }
